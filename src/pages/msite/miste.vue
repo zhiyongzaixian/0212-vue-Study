@@ -1,67 +1,66 @@
 <template>
 	<div id="msiteContainer">
 		<h1>msite组件</h1>
-		<p>{{num}}</p>
+		<div class="tabs">
+			<div class="tabItem" :class="{activeClass: comName === 'MsiteChidl1'}" @click="changeMsite('MsiteChidl1')">msiteChild1</div>
+			<div class="tabItem" :class="{activeClass: comName === 'MsiteChidl2'}" @click="changeMsite('MsiteChidl2')">msiteChild2</div>
+		</div>
+		<keep-alive :exclude="['MsiteChidl2']">
+			<component :is='comName' :msg='msg' :getChildMsg='getChildMsg'></component>
+		</keep-alive>
+		<!-- <MsiteChidl1></MsiteChidl1>
+		<MsiteChidl2></MsiteChidl2> -->
 	</div>
+	
 </template>
 
 <script>
+	import MsiteChidl1 from './msiteChild1/msiteChild1'
+	import MsiteChidl2 from './msiteChild2/msiteChild2'
 	export default {
+		components: {
+			MsiteChidl1, MsiteChidl2
+		},
 		data(){
 			return {
-				msg: 'msite初始化数据',
-				num: 1
+				comName: 'MsiteChidl1',
+				msg: '父组件msite的数据'
 			}
 		},
-		// C M U D
-		beforeCreate(){
-			console.log('----- beforeCreate ------');
-			// 实例初始化之后，数据劫持代理之前
-			console.log(this)
-			console.log(this.msg) // undefined
-			console.log(this.$options.data().msg) // msite初始化数据
+		methods: {
+			changeMsite(comName){
+				this.comName = comName
+			},
+			getChildMsg(childMsg){
+				console.log('来自于子组件的数据： ', childMsg);
+			}
 		},
-		created(){
-			console.log('----- created ------');
-			// 已经实现了数据劫持和代理
-			console.log(this.msg)
-		},
-		beforeMount(){
-			console.log('----- beforeMount 即将要挂载------');
-			// debugger;
-			// 也可以在mounted之前发请求，1. 数据量较小，2. 要求页面显示的一定是最新的数据
-		},
-		mounted(){
-			console.log('----- mounted 挂载完毕------');
-			// 通常用于发送ajax请求，开启定时器，不影响页面初始化渲染
+		errorCaptured(errObj, errVM, errMsg){
+			console.log('------ errorCaptured 错误捕获 -------')
+			console.log(errObj);
+			console.log(this) // 当前组件实例 msite
+			console.log(errVM); // 错误组件实例 msiteChild1
+			console.log(errMsg);
 			
-			this.intervalId = setInterval(() => {
-				console.log('setInterval()')
-				this.num++
-			}, 1000)
-			setTimeout(() => {
-				// 销毁当前的组件
-				this.$destroy()
-			}, 4000)
-		},
-		beforeUpdate(){
-			console.log('----- beforeUpdate ------');
-		},
-		updated(){
-			console.log('----- updated ------');
-		},
-		beforeDestroy(){
-			console.log('----- beforeDestroy 即将要销毁------');
-			// Vue的销毁： 1. 销毁的是组件的实例， 2. 页面保留销毁之前的状态 3. 切断组件和页面的联系 4. 动态数据 --> 静态数据
-		},
-		destroyed(){
-			console.log('----- destroyed 已经销毁------');
-			// 通常做一些收尾工作，如： 关闭定时器，清除缓存，
-			clearInterval(this.intervalId)
+			// msiteChild1VM.getChildMsg(msiteChild1VM.msg2)
+			errVM.getChildMsg(errVM.msg2)
+			// 阻止错误继续向上传播
+			return false;
 		}
+		
 	}
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus" scoped>
-
+	.tabs
+		display flex
+		.tabItem
+			width 50%
+			height 80px
+			line-height 80px
+			text-align center
+			border 1px solid #eee
+			&.activeClass
+				color red
+				border-color red
 </style>
