@@ -4,7 +4,7 @@
 		<p>测试1</p> -->
 		
 		<router-view></router-view>
-		<FooterGuide v-if='$route.meta.isShowFooter'></FooterGuide>
+		<FooterGuide></FooterGuide>
 	</div>
 </template>
 

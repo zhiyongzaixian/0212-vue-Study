@@ -3,33 +3,12 @@
 		<div class="guideItem " :class='{active: $route.path === "/msite"}' @click="handleClick('/msite')">
 			<span>首页</span>
 		</div>
-	<!-- 	<div class="guideItem" :class='{active: $route.path === "/cateGory"}' @click="handleClick('/cateGory')" >
+		<div class="guideItem" :class='{active: $route.path === "/cateGory"}' @click="handleClick('/cateGory')" >
 			<span>分类</span>
-		</div> -->
-		<div class="guideItem" :class='{active: $route.path === "/cateGory"}' >
-			<router-link to='/cateGory'>分类</router-link>
 		</div>
-		
-		
-		
-		<!-- params动态传参 -->
-		<div class="guideItem" :class='{active: $route.path === "/cateGory"}' >
-			<router-link :to="{name: 'Buy', params: {id: 1, a: 2, b: 3}}">值得买</router-link>
-			
-			<!-- params不能和path搭配使用 -->
-			<!-- <router-link :to="{path: '/buy', params: {id: 1}}">值得买</router-link> -->
-		</div>
-		
-		
-		
-		
-		
-		
-		
-		
-<!-- 		<div class="guideItem" :class='{active: $route.path === "/buy"}' @click="handleClick('/buy')">
+		<div class="guideItem" :class='{active: $route.path === "/buy"}' @click="handleClick('/buy')">
 			<span>值得买</span>
-		</div> -->
+		</div>
 		<div class="guideItem" :class='{active: $route.path === "/cart"}' @click="handleClick('/cart')">
 			<span>购物车</span>
 		</div>
@@ -66,6 +45,4 @@
 			text-align center
 			&.active
 				color red
-				a
-					color red
 </style>

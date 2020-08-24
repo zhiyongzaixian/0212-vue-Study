@@ -1,16 +1,12 @@
 <template>
 	<div>
-		<h2>msiteChild1</h2>
+		<h2>msiteChild2</h2>
+	
 	</div>
 </template>
 
 <script>
 	export default {
-		data(){
-			return {
-			
-			}
-		},
 		
 	}
 </script>

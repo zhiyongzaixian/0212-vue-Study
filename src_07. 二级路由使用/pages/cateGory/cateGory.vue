@@ -1,16 +1,11 @@
 <template>
 	<div>
-		<h2>msiteChild1</h2>
+		cateGory 组件
 	</div>
 </template>
 
 <script>
 	export default {
-		data(){
-			return {
-			
-			}
-		},
 		
 	}
 </script>

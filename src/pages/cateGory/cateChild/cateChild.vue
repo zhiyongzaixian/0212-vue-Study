@@ -1,16 +1,12 @@
 <template>
 	<div>
-		<h2>msiteChild1</h2>
+		<h2>cateChild 组件</h2>
+		<p>query参数： {{$route.query.a}} --- {{$route.query.b}}</p>
 	</div>
 </template>
 
 <script>
 	export default {
-		data(){
-			return {
-			
-			}
-		},
 		
 	}
 </script>

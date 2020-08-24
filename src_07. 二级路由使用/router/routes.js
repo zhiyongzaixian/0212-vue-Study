@@ -5,7 +5,6 @@ import Buy from '../pages/buy/buy'
 import Personal from '../pages/personal/personal'
 
 import MsiteChild1 from '../pages/msite/msiteChild1/msiteChild1'
-import CateChild from '../pages/cateGory/cateChild/cateChild'
 
 export default [
 	// {
@@ -22,53 +21,26 @@ export default [
 				path: 'msiteChild1',
 				component: MsiteChild1
 			}
-		],
-		meta: {
-			isShowFooter: true
-		}
+		]
 	},
 	{
 		path: '/cateGory',
-		component: CateGory,
-		meta: {
-			isShowFooter: true
-		},
-		name: 'cate',
-		children: [
-			{
-				// path: '/msite/msiteChild1',
-				path: '/cateGory/cateChild/:id',
-				// path: 'cateChild',
-				component: CateChild,
-				name: 'cateChild'
-			}
-		],
-
+		component: CateGory
 	},
 	{
 		path: '/cart',
-		component: Cart,
-		meta: {
-			isShowFooter: true
-		}
+		component: Cart
 	},
 	{
 		path: '/buy',
-		component: Buy,
-		meta: {
-			isShowFooter: true
-		},
-		name: 'Buy'
+		component: Buy
 	},
 	{
 		path: '/personal',
-		component: Personal,
-		meta: {
-			isShowFooter: false
-		}
+		component: Personal
 	},
 	{
 		path: '/',
-		redirect: '/cateGory'
+		redirect: '/msite'
 	}
 ]
