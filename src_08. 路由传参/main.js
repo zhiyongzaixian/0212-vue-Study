@@ -1,11 +1,8 @@
 import Vue from 'vue'
 import App from './App.vue'
 import 'lib-flexible/flexible'
-import Test from './components/Test/test'
-import MyButton from './components/MyButton'
 
-Vue.use(Test)
-Vue.use(MyButton)
+import router from './router'
 
 Vue.config.productionTip = false
 Vue.config.errorHandler = (errObj, errVM, errMsg) => {
@@ -23,4 +20,5 @@ Vue.prototype.$EventBus = new Vue();
 
 new Vue({
   render: h => h(App),
+	router
 }).$mount('#app')

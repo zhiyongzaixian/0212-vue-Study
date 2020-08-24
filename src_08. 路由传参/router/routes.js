@@ -53,12 +53,20 @@ export default [
 		}
 	},
 	{
-		path: '/buy',
+		path: '/buy/:id',
 		component: Buy,
 		meta: {
 			isShowFooter: true
 		},
-		name: 'Buy'
+		name: 'Buy',
+		// props: true // 布尔值, 将当前params参数导入对应路由组件的内部
+		// props: { // 对象模式， 可以自定义任何内容， 需要在组件内部通过props接收
+		// 	a: 1, 
+		// 	b: 2
+		// }
+		
+		// 函数模式： 1. 可以自定义props内容， 2. 可以声明形参接收$route信息实参
+		props: route => ({a: 1, b:2, id: route.params.id, path: route.path})
 	},
 	{
 		path: '/personal',
@@ -69,6 +77,6 @@ export default [
 	},
 	{
 		path: '/',
-		redirect: '/cateGory'
+		redirect: '/cart'
 	}
 ]

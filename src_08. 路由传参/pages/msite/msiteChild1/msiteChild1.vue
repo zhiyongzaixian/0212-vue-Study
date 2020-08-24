@@ -1,11 +1,16 @@
 <template>
 	<div>
-		buy 组件
+		<h2>msiteChild1</h2>
 	</div>
 </template>
 
 <script>
 	export default {
+		data(){
+			return {
+			
+			}
+		},
 		
 	}
 </script>

@@ -13,8 +13,8 @@
 		
 		
 		<!-- params动态传参 -->
-		<div class="guideItem" :class='{active: $route.path === "/cateGory"}' >
-			<router-link :to="{name: 'Buy', params: {id: 1, a: 2, b: 3}}">值得买</router-link>
+		<div class="guideItem" :class='{active: $route.path === "/buy"}' >
+			<router-link :to="{name: 'Buy', params: {id: 1}}">值得买</router-link>
 			
 			<!-- params不能和path搭配使用 -->
 			<!-- <router-link :to="{path: '/buy', params: {id: 1}}">值得买</router-link> -->
