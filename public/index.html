@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+		<link rel="stylesheet" type="text/css" href="./reset.css"/>
+  </head>
+  <body>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+		
+		<script type="text/javascript">
+			// rem适配方案: 1. 将屏幕的宽度等分10份, 每份的宽度就是1rem   2. 1rem = 100px
+			// 降低单位rem的值的大小,为了便于换算,提高计算精确度
+			
+			// function remRefresh(){
+			// 	// 1. 将屏幕的宽度等分 10份
+			// 	let clientWidth = document.documentElement.clientWidth;
+			// 	let rem = clientWidth / 10;
+			// 	// 2. 设置根节点字体的大小
+			// 	document.documentElement.style.fontSize = rem + 'px';
+				
+			// 	// 3. 设置body字体大小
+			// 	document.body.style.fontSize = '16px'
+			// }
+			
+			// window.addEventListener('pageshow', () => {
+			// 	remRefresh()
+			// })
+			// let intervalId;
+			// window.addEventListener('resize', () => {
+			// 	intervalId && clearTimeout(intervalId);
+			// 	intervalId = setTimeout(() => {
+			// 		console.log('resize')
+			// 		remRefresh()
+			// 	}, 3000)
+			// })
+		</script>
+  </body>
+</html>
