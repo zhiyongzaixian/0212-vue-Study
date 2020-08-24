@@ -1,7 +1,6 @@
 <template>
 	<div>
-		<h2>msiteChild2</h2>
-	
+		cateGory 组件
 	</div>
 </template>
 

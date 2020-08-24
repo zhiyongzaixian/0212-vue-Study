@@ -12,12 +12,6 @@ Vue.config.errorHandler = (errObj, errVM, errMsg) => {
 	console.log(errMsg);
 }
 
-// 事件总线设置
-// 构造函数的显示原型对象 === 其实例的隐式原型对象
-// Vue.prototype === vm.__proto__
-
-Vue.prototype.$EventBus = new Vue();
-
 new Vue({
   render: h => h(App),
 	router

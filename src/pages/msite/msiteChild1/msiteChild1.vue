@@ -1,31 +1,25 @@
 <template>
 	<div>
 		<h2>msiteChild1</h2>
-		<p>{{msg}}</p>
+		<button @click="handleClick">触发自定义事件</button>
 	</div>
 </template>
 
 <script>
 	export default {
-		props: ['msg', 'getChildMsg'],
 		data(){
 			return {
 				msg2: '我是子组件的数据msg'
 			}
 		},
-		mounted(){
-			// console.log('msiteChild1 mounted');
-			// 抛出错误
-			console.log(aaa);
-			this.getChildMsg(this.msg2)
+		mounted() {
+			console.log('子 mounted');
 		},
-		activated(){
-			// console.log('msiteChild1 activated');
-			// 用来取代mounted去发送请求等初始化工作
-		},
-		deactivated() {
-			// console.log('msiteChild1 deactivated');
-			// 用来取代destoryed 做一些收尾工作
+		methods: {
+			handleClick(){
+				console.log('click事件触发')
+				this.$EventBus.$emit('myEvent', this.msg2);
+			}
 		}
 	}
 </script>

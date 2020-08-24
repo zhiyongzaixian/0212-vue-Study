@@ -1,7 +1,6 @@
 <template>
 	<div>
-		<h2>msiteChild2</h2>
-	
+		buy 组件
 	</div>
 </template>
 

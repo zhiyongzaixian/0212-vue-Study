@@ -1,15 +1,11 @@
 <template>
 	<div id="msiteContainer">
 		<h1>msite组件</h1>
-		<div class="tabs">
-			<div class="tabItem" :class="{activeClass: comName === 'MsiteChidl1'}" @click="changeMsite('MsiteChidl1')">msiteChild1</div>
-			<div class="tabItem" :class="{activeClass: comName === 'MsiteChidl2'}" @click="changeMsite('MsiteChidl2')">msiteChild2</div>
-		</div>
-		<keep-alive :exclude="['MsiteChidl2']">
-			<component :is='comName' :msg='msg' :getChildMsg='getChildMsg'></component>
-		</keep-alive>
-		<!-- <MsiteChidl1></MsiteChidl1>
-		<MsiteChidl2></MsiteChidl2> -->
+		<MsiteChidl1></MsiteChidl1>
+		<br>
+		<br>
+		<br>
+		<MsiteChidl2></MsiteChidl2>
 	</div>
 	
 </template>
@@ -23,30 +19,18 @@
 		},
 		data(){
 			return {
-				comName: 'MsiteChidl1',
 				msg: '父组件msite的数据'
 			}
 		},
-		methods: {
-			changeMsite(comName){
-				this.comName = comName
-			},
-			getChildMsg(childMsg){
-				console.log('来自于子组件的数据： ', childMsg);
-			}
-		},
-		errorCaptured(errObj, errVM, errMsg){
-			console.log('------ errorCaptured 错误捕获 -------')
-			console.log(errObj);
-			console.log(this) // 当前组件实例 msite
-			console.log(errVM); // 错误组件实例 msiteChild1
-			console.log(errMsg);
-			
-			// msiteChild1VM.getChildMsg(msiteChild1VM.msg2)
-			errVM.getChildMsg(errVM.msg2)
-			// 阻止错误继续向上传播
-			return false;
+		mounted() {
+			console.log('父 mounted');
+			// 绑定事件
+			this.$EventBus.$on('myEvent', (myMsg) => {
+				console.log('$on绑定的 自定义事件');
+				console.log(myMsg)
+			});
 		}
+	
 		
 	}
 </script>
