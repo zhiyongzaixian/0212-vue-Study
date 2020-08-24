@@ -1,16 +1,11 @@
 <template>
 	<div id="msiteContainer">
 		<h1>msite组件</h1>
-		<MsiteChidl1>
-			<!-- <p>我是导入的内容</p> -->
-			<template v-slot:left="{personal}">
-				<p>{{personal.lastName}}</p>
-			</template>
-		</MsiteChidl1>
+		<MsiteChidl1></MsiteChidl1>
 		<br>
 		<br>
 		<br>
-		<MsiteChidl2 :msg='msg'></MsiteChidl2>
+		<MsiteChidl2></MsiteChidl2>
 	</div>
 	
 </template>
@@ -28,7 +23,12 @@
 			}
 		},
 		mounted() {
-			
+			console.log('父 mounted');
+			// 绑定事件
+			this.$EventBus.$on('myEvent', (myMsg) => {
+				console.log('$on绑定的 自定义事件');
+				console.log(myMsg)
+			});
 		}
 	
 		

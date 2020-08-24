@@ -2,15 +2,17 @@
 	<div id="msiteContainer">
 		<h1>msite组件</h1>
 		<MsiteChidl1>
-			<!-- <p>我是导入的内容</p> -->
-			<template v-slot:left="{personal}">
-				<p>{{personal.lastName}}</p>
+			<template v-slot:left>
+				<p>我是左护法</p>
+			</template>
+			<template v-slot:right>
+				<p>我是右护法</p>
 			</template>
 		</MsiteChidl1>
 		<br>
 		<br>
 		<br>
-		<MsiteChidl2 :msg='msg'></MsiteChidl2>
+		<MsiteChidl2></MsiteChidl2>
 	</div>
 	
 </template>

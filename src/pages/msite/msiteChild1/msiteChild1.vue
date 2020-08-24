@@ -1,7 +1,12 @@
 <template>
 	<div>
 		<h2>msiteChild1</h2>
-		<button @click="handleClick">触发自定义事件</button>
+	
+		<br>
+		<p>我是主公</p>
+		<br>
+		<slot name="left" :personal='personal'>{{personal.firstName}}</slot>
+		
 	</div>
 </template>
 
@@ -9,18 +14,13 @@
 	export default {
 		data(){
 			return {
-				msg2: '我是子组件的数据msg'
+				personal: {
+					firstName: 'curry',
+					lastName: 'stephen'
+				}
 			}
 		},
-		mounted() {
-			console.log('子 mounted');
-		},
-		methods: {
-			handleClick(){
-				console.log('click事件触发')
-				this.$EventBus.$emit('myEvent', this.msg2);
-			}
-		}
+		
 	}
 </script>
 
