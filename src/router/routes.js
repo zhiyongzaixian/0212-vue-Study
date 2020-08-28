@@ -1,8 +1,16 @@
-import Msite from '../pages/msite/miste'
-import CateGory from '../pages/cateGory/cateGory'
-import Cart from '../pages/cart/cart'
-import Buy from '../pages/buy/buy'
-import Personal from '../pages/personal/personal'
+// 静态引入
+// import Msite from '../pages/msite/miste'
+// import CateGory from '../pages/cateGory/cateGory'
+// import Cart from '../pages/cart/cart'
+// import Buy from '../pages/buy/buy'
+// import Personal from '../pages/personal/personal'
+
+// 动态引入
+const Msite = () => import('../pages/msite/miste');
+const CateGory = () => import('../pages/cateGory/cateGory');
+const Cart = () => import('../pages/cart/cart');
+const Buy = () => import('../pages/buy/buy');
+const Personal = () => import('../pages/personal/personal');
 
 import MsiteChild1 from '../pages/msite/msiteChild1/msiteChild1'
 

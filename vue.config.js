@@ -1,4 +1,5 @@
 module.exports = {
+	productionSourceMap: false, // 关闭生产环境的映射文件
 	lintOnSave: false,
 	css: {
 	 		loaderOptions: {
