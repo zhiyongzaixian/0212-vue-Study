@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<h2>Test组件</h2>
+		buy 组件
 	</div>
 </template>
 
